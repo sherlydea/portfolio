@@ -89,7 +89,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
 
           <a
-            href="/CV-Sherly.pdf"
+            href="/CV-sherly-dea-aulia.pdf"
             target="_blank"
             className="rounded-xl border border-cyan-400 px-5 py-2.5 text-cyan-400 font-medium hover:bg-cyan-400 hover:text-slate-950 transition"
           >

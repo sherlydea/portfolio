@@ -84,7 +84,7 @@ const PROJECTS = [
       "Melakukan perencanaan sistem informasi untuk lembaga bimbingan belajar EQ-Math, meliputi identifikasi kebutuhan bisnis dan penyusunan rancangan solusi sistem.",
     role: ["System Analysis"],
     tech: ["Documentation"],
-    report: "/reports/eqmath_pkti.pdf",
+    report: "/reports/eq-math-pkti.pdf",
     dashboard: "https://v0-it-kpi-dashboard.vercel.app/",
   },
 ];
