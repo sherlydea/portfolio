@@ -13,47 +13,29 @@ const FOCUS_ITEMS = [
     code: "01",
     title: "System Analysis",
     desc: "Memetakan proses & kebutuhan sistem secara terstruktur.",
+    color: "group-hover:border-[#CCFF00]/40",
+    accent: "group-hover:via-[#CCFF00]/50"
   },
   {
     code: "02",
     title: "Business Process Analysis",
     desc: "Menelaah alur bisnis untuk menemukan celah perbaikan.",
+    color: "group-hover:border-[#FF8B72]/40",
+    accent: "group-hover:via-[#FF8B72]/50"
   },
   {
     code: "03",
     title: "UI/UX Design",
     desc: "Merancang antarmuka yang jelas dan mudah digunakan.",
+    color: "group-hover:border-[#E3D5CA]/40",
+    accent: "group-hover:via-[#E3D5CA]/50"
   },
   {
     code: "04",
     title: "Software Development",
     desc: "Menerjemahkan rancangan menjadi aplikasi yang berjalan.",
-  },
-];
-
-const QUICK_FACTS = [
-  {
-    icon: FaMapMarkerAlt,
-    label: "Lokasi",
-    value: "Surabaya, Indonesia",
-  },
-  {
-    icon: FaGraduationCap,
-    label: "Pendidikan",
-    value: "Sistem Informasi",
-    sub: 'UPN "Veteran" Jawa Timur',
-  },
-  {
-    icon: FaBriefcase,
-    label: "Status",
-    value: "Open to Internship",
-    accent: true,
-  },
-  {
-    icon: FaLaptopCode,
-    label: "Tech Stack",
-    value: "Figma · Flutter · PHP",
-    sub: "Java · MySQL",
+    color: "group-hover:border-[#CCFF00]/40",
+    accent: "group-hover:via-[#CCFF00]/50"
   },
 ];
 
@@ -61,29 +43,21 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative bg-[#0A0F1F] overflow-hidden py-32"
+      className="relative bg-[#0B0F17] overflow-hidden py-32"
     >
-      {/* Background Grid — same blueprint system as Hero */}
+      {/* DOT GRID BACKGROUND — Menyelaraskan dengan Blueprint Hero baru */}
       <div
-        className="absolute inset-0 opacity-[0.06]"
+        className="absolute inset-0 opacity-[0.15]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(91,141,239,.5) 1px, transparent 1px),linear-gradient(90deg, rgba(91,141,239,.5) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
-      <div
-        className="absolute inset-0 opacity-[0.08]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(91,141,239,.8) 1px, transparent 1px),linear-gradient(90deg, rgba(91,141,239,.8) 1px, transparent 1px)",
-          backgroundSize: "192px 192px",
+            "radial-gradient(rgba(204,255,0,.2) 1.5px, transparent 1.5px)",
+          backgroundSize: "30px 30px",
         }}
       />
 
-      {/* Glow */}
-      <div className="absolute -top-44 left-0 w-[500px] h-[500px] bg-[#5B8DEF]/10 blur-[150px]" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#F2A93B]/[0.06] blur-[150px]" />
+      {/* SOFT CANDY GLOWS */}
+      <div className="absolute -top-44 left-0 w-[500px] h-[500px] bg-[#CCFF00]/5 blur-[150px]" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#FF8B72]/5 blur-[150px]" />
 
       <div className="relative max-w-6xl mx-auto px-6">
 
@@ -96,18 +70,18 @@ export default function About() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="inline-flex items-center gap-3">
-
-            <p className="text-[#8FA8E8] uppercase tracking-[.35em] text-xs font-mono">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#CCFF00]/20 bg-[#CCFF00]/5 mb-4">
+            <span className="w-1 h-1 rounded-full bg-[#CCFF00]" />
+            <p className="text-[#CCFF00] uppercase tracking-[.35em] text-[10px] font-bold font-mono">
               About Me
             </p>
           </div>
 
-          <h2 className="mt-5 text-4xl md:text-5xl font-bold text-[#EEF1F8]">
+          <h2 className="mt-2 text-4xl md:text-5xl font-extrabold text-white tracking-tight">
             Mengenal Saya Lebih Dekat
           </h2>
 
-          <p className="mt-8 max-w-3xl mx-auto text-[#A3ADC9] leading-8 text-lg">
+          <p className="mt-8 max-w-3xl mx-auto text-slate-400 leading-8 text-lg">
             Saya adalah mahasiswa Sistem Informasi di Universitas
             Pembangunan Nasional &quot;Veteran&quot; Jawa Timur yang memiliki
             minat pada bidang system analysis, business process analysis,
@@ -118,13 +92,18 @@ export default function About() {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-2.5">
-            {["System Analysis", "Business Process Analysis", "UI/UX Design", "Software Development"].map(
+            {[
+              { text: "System Analysis", style: "border-[#CCFF00]/20 bg-[#CCFF00]/5 text-[#CCFF00]" },
+              { text: "Business Process Analysis", style: "border-[#FF8B72]/20 bg-[#FF8B72]/5 text-[#FF8B72]" },
+              { text: "UI/UX Design", style: "border-[#E3D5CA]/20 bg-[#E3D5CA]/5 text-[#E3D5CA]" },
+              { text: "Software Development", style: "border-[#CCFF00]/20 bg-[#CCFF00]/5 text-[#CCFF00]" }
+            ].map(
               (tag) => (
                 <span
-                  key={tag}
-                  className="rounded-full border border-[#2B3B66] bg-[#101B36]/60 px-4 py-1.5 font-mono text-xs tracking-wide text-[#C4CDE8]"
+                  key={tag.text}
+                  className={`rounded-full border px-4 py-1.5 font-mono text-xs font-semibold tracking-wide ${tag.style}`}
                 >
-                  {tag}
+                  {tag.text}
                 </span>
               )
             )}
@@ -138,28 +117,31 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mt-28"
+          className="mt-32"
         >
           <div className="text-center mb-14">
-            <p className="text-[#8FA8E8] uppercase tracking-[.35em] text-xs font-mono">
-              Current Focus
-            </p>
-            <h3 className="mt-4 text-3xl md:text-4xl font-bold text-[#EEF1F8]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#FF8B72]/20 bg-[#FF8B72]/5 mb-4">
+              <span className="w-1 h-1 rounded-full bg-[#FF8B72]" />
+              <p className="text-[#FF8B72] uppercase tracking-[.35em] text-[10px] font-bold font-mono">
+                Current Focus
+              </p>
+            </div>
+            <h3 className="mt-2 text-3xl md:text-4xl font-extrabold text-white tracking-tight">
               Bidang yang Sedang Saya Kembangkan
             </h3>
-           <p className="mt-8 max-w-3xl mx-auto text-[#A3ADC9] leading-8 text-lg">
-  Saya berfokus pada pengembangan solusi digital yang dimulai dari
-  memahami kebutuhan pengguna, menganalisis proses bisnis, hingga
-  merancang sistem yang efektif dan mudah digunakan.
-
-  Saat ini saya terus mengembangkan kemampuan di bidang
-  <span className="text-[#EEF1F8] font-medium"> System Analysis</span>,
-  <span className="text-[#EEF1F8] font-medium"> Business Analysis</span>,
-  <span className="text-[#EEF1F8] font-medium"> UI/UX Design</span>,
-  dan
-  <span className="text-[#EEF1F8] font-medium"> Software Development</span>
-  melalui berbagai proyek akademik maupun personal.
-</p>
+            <p className="mt-8 max-w-3xl mx-auto text-slate-400 leading-8 text-lg">
+              Saya berfokus pada pengembangan solusi digital yang dimulai dari
+              memahami kebutuhan pengguna, menganalisis proses bisnis, hingga
+              merancang sistem yang efektif dan mudah digunakan.
+              <br className="hidden md:block" />
+              <br className="hidden md:block" />
+              Saat ini saya terus mengembangkan kemampuan di bidang{" "}
+              <span className="text-white font-semibold underline decoration-[#CCFF00] decoration-2 underline-offset-4">System Analysis</span>,{" "}
+              <span className="text-white font-semibold underline decoration-[#FF8B72] decoration-2 underline-offset-4">Business Analysis</span>,{" "}
+              <span className="text-white font-semibold underline decoration-[#E3D5CA] decoration-2 underline-offset-4">UI/UX Design</span>, dan{" "}
+              <span className="text-white font-semibold underline decoration-[#CCFF00] decoration-2 underline-offset-4">Software Development</span>{" "}
+              melalui berbagai proyek akademik maupun personal.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-5">
@@ -167,24 +149,24 @@ export default function About() {
               <motion.div
                 whileHover={{ y: -4 }}
                 key={item.code}
-                className="group relative rounded-2xl border border-[#25335C] bg-[#0D1630]/60 p-7 hover:border-[#5B8DEF]/60 transition-all duration-300"
+                className={`group relative rounded-3xl border border-slate-800 bg-[#121722]/60 p-8 transition-all duration-300 ${item.color}`}
               >
                 <div className="flex items-start gap-5">
-                  <span className="font-mono text-xs text-[#4A5580] group-hover:text-[#F2A93B] transition-colors">
-                    {item.code}
+                  <span className="font-mono text-xs font-bold text-slate-600 group-hover:text-white transition-colors">
+                    // {item.code}
                   </span>
 
                   <div>
-                    <h4 className="text-[#EEF1F8] text-lg font-semibold">
+                    <h4 className="text-white text-lg font-bold tracking-tight">
                       {item.title}
                     </h4>
-                    <p className="mt-2 text-sm text-[#8892B0] leading-6">
+                    <p className="mt-2 text-sm text-slate-400 leading-6 font-normal">
                       {item.desc}
                     </p>
                   </div>
                 </div>
 
-                <span className="absolute bottom-0 left-7 right-7 h-px bg-gradient-to-r from-[#5B8DEF]/0 via-[#5B8DEF]/30 to-[#5B8DEF]/0 group-hover:via-[#F2A93B]/50 transition-colors" />
+                <span className={`absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent ${item.accent} transition-colors`} />
               </motion.div>
             ))}
           </div>

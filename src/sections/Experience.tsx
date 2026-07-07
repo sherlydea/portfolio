@@ -19,66 +19,99 @@ const EXPERIENCES = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-28 bg-[#070B18]">
-      <div className="max-w-5xl mx-auto px-6">
+    <section id="experience" className="relative bg-[#0B0F17] py-32 overflow-hidden">
+      
+      {/* DOT GRID BACKGROUND */}
+      <div
+        className="absolute inset-0 opacity-[0.15]"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(204,255,0,.15) 1.5px, transparent 1.5px)",
+          backgroundSize: "30px 30px",
+        }}
+      />
+
+      {/* SOFT GLOWS */}
+      <div className="absolute top-[-100px] right-1/4 w-[500px] h-[500px] bg-[#CCFF00]/5 blur-[120px] rounded-full" />
+      <div className="absolute bottom-[-100px] left-1/4 w-[500px] h-[500px] bg-[#FF8B72]/5 blur-[120px] rounded-full" />
+
+      <div className="relative max-w-5xl mx-auto px-6">
 
         {/* HEADER */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl font-bold text-white">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#CCFF00]/20 bg-[#CCFF00]/5 mb-4">
+            <span className="w-1 h-1 rounded-full bg-[#CCFF00]" />
+            <p className="text-[#CCFF00] uppercase tracking-[.35em] text-[10px] font-bold font-mono">
+              Career Path
+            </p>
+          </div>
+
+          <h2 className="mt-2 text-4xl md:text-5xl font-extrabold text-white tracking-tight">
             Experience
           </h2>
-          <p className="text-slate-400 mt-4">
-            Pengalaman kerja profesional
+
+          <p className="mt-4 max-w-xl mx-auto text-slate-400 leading-7 text-base">
+            Pengalaman kerja profesional dan aktivitas magang industri.
           </p>
         </motion.div>
 
         {/* CONTENT */}
-        <div className="space-y-10">
+        <div className="space-y-12">
           {EXPERIENCES.map((exp, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex flex-col md:flex-row gap-6 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="flex flex-col md:flex-row gap-8 p-8 rounded-3xl border border-slate-800/80 bg-[#121722]/40 backdrop-blur-xl transition duration-300 hover:border-[#CCFF00]/20"
             >
 
-              {/* IMAGE AKTIVITAS */}
-              <div className="w-full md:w-[220px] h-[140px] relative rounded-xl overflow-hidden border border-white/10 bg-white/10 flex-shrink-0">
+              {/* IMAGE AKTIVITAS (Desain Frame Kotak Sleek) */}
+              <div className="w-full md:w-[240px] h-[150px] relative rounded-2xl overflow-hidden border border-slate-800 bg-[#161F30] flex-shrink-0 group">
                 {exp.image ? (
                   <Image
                     src={exp.image}
                     alt={exp.company}
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-[1.04] transition duration-500"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-xs text-slate-400">
-                    No Image
+                  <div className="w-full h-full flex items-center justify-center text-xs font-mono text-slate-500">
+                    No Preview Available
                   </div>
                 )}
               </div>
 
-              {/* TEXT */}
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-white">
+              {/* TEXT CONTENT */}
+              <div className="flex-1 flex flex-col justify-center">
+                <h3 className="text-xl font-extrabold text-white tracking-tight">
                   {exp.company}
                 </h3>
 
-                <p className="text-cyan-400 text-sm mt-1">
-                  {exp.role} • {exp.period}
-                </p>
+                {/* INFO BAR (Desain Minimalis Tanpa Bubble) */}
+                <div className="mt-2 flex flex-wrap items-center gap-x-3 text-xs font-mono">
+                  <span className="text-[#FF8B72] font-bold tracking-wider uppercase">
+                    {exp.role}
+                  </span>
+                  <span className="text-slate-800">|</span>
+                  <span className="text-slate-400 font-medium">
+                    {exp.period}
+                  </span>
+                </div>
 
-                <ul className="mt-4 space-y-1 text-slate-300 text-sm leading-6">
+                {/* LIST DESKRIPSI */}
+                <ul className="mt-5 space-y-2.5 text-slate-400 text-sm leading-6">
                   {exp.description.map((item, i) => (
-                    <li key={i} className="flex gap-2">
-                      <span className="text-cyan-400">•</span>
-                      {item}
+                    <li key={i} className="flex gap-3 items-start">
+                      <span className="text-[#CCFF00] font-bold font-mono mt-0.5">•</span>
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>

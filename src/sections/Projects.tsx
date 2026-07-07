@@ -13,7 +13,6 @@ const PROJECTS = [
     role: ["System Analysis", "Web Development"],
     tech: ["Laravel", "PHP", "MySQL", "HTML", "CSS"],
   },
-
   {
     title: "SiBANDO",
     subtitle: "Disaster Information Mobile Application",
@@ -32,7 +31,6 @@ const PROJECTS = [
     ],
     prototype: "https://www.figma.com/proto/SSKlESCwxk2xG4aNxghEmk/Prototype-PEMMOB?node-id=0-1&t=e0Eqc5vNANkzanfO-1",
   },
-
   {
     title: "Sistem Kasir Mie Gacoan",
     subtitle: "Desktop Cashier Application",
@@ -42,7 +40,6 @@ const PROJECTS = [
     role: ["Desktop Development"],
     tech: ["Java", "Java Swing"],
   },
-
   {
     title: "GoGoTalk",
     subtitle: "AI English Learning Prototype",
@@ -53,7 +50,6 @@ const PROJECTS = [
     tech: ["Figma"],
     prototype: "https://www.figma.com/proto/JDCV6BVd6PlRKlWB4lt1k1/TIM-EDI-JUARA?node-id=0-1&t=1AnE1h2dRZ1G9uVs-1",
   },
-
   {
     title: "TaniMate",
     subtitle: "Smart Farming Prototype",
@@ -64,7 +60,6 @@ const PROJECTS = [
     tech: ["Figma"],
     prototype: "https://www.figma.com/proto/7UKsXSa3iNe1ue3Z9URBio/UI-UX-TANIMATE?node-id=0-1&t=ni9bi3fD0VD9sjYf-1",
   },
-
   {
     title: "Analisis Infrastruktur TI J&T Cargo Menganti",
     subtitle: "IT Infrastructure Analysis",
@@ -75,7 +70,6 @@ const PROJECTS = [
     tech: ["Documentation"],
     report: "/reports/jnt-cargo.pdf",
   },
-
   {
     title: "Perencanaan Sistem Informasi EQ-Math",
     subtitle: "Information System Planning",
@@ -91,177 +85,183 @@ const PROJECTS = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative bg-[#070B18] py-32 overflow-hidden">
-  {/* Background Glow */}
-  <div className="absolute inset-0">
-    <div className="absolute top-[-200px] left-1/2 w-[600px] h-[600px] bg-cyan-500/10 blur-[120px] rounded-full" />
-    <div className="absolute bottom-[-200px] right-1/2 w-[500px] h-[500px] bg-blue-500/10 blur-[120px] rounded-full" />
-  </div>
+    <section id="projects" className="relative bg-[#0B0F17] py-32 overflow-hidden">
+      
+      {/* DOT GRID BACKGROUND */}
+      <div
+        className="absolute inset-0 opacity-[0.15]"
+        style={{
+          backgroundImage:
+            "radial-gradient(rgba(204,255,0,.15) 1.5px, transparent 1.5px)",
+          backgroundSize: "30px 30px",
+        }}
+      />
 
-  <div className="relative max-w-7xl mx-auto px-6">
+      {/* SOFT GLOWS */}
+      <div className="absolute top-[-200px] left-1/2 w-[600px] h-[600px] bg-[#CCFF00]/5 blur-[120px] rounded-full" />
+      <div className="absolute bottom-[-200px] right-1/2 w-[500px] h-[500px] bg-[#FF8B72]/5 blur-[120px] rounded-full" />
 
-    {/* HEADER */}
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7 }}
-      className="text-center"
-    >
-      <p className="uppercase tracking-[0.4em] text-xs text-cyan-400 font-mono">
-        Portfolio Works
-      </p>
+      <div className="relative max-w-7xl mx-auto px-6">
 
-      <h2 className="mt-6 text-5xl font-bold text-white">
-        Selected Projects
-      </h2>
+        {/* HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#CCFF00]/20 bg-[#CCFF00]/5 mb-4">
+            <span className="w-1 h-1 rounded-full bg-[#CCFF00]" />
+            <p className="text-[#CCFF00] uppercase tracking-[.35em] text-[10px] font-bold font-mono">
+              Portfolio Works
+            </p>
+          </div>
 
-      <p className="mt-6 max-w-2xl mx-auto text-slate-400 leading-8">
-        Beberapa project yang saya kembangkan selama perkuliahan sebagai implementasi
-        kemampuan UI/UX Design, System Analysis, dan Software Development.
-      </p>
-    </motion.div>
+          <h2 className="mt-2 text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+            Selected Projects
+          </h2>
 
-    {/* PROJECT LIST */}
-    <div className="mt-24 space-y-28">
-      {PROJECTS.map((project, index) => {
-        const isReversed = index % 2 !== 0;
+          <p className="mt-6 max-w-2xl mx-auto text-slate-400 leading-8 text-base">
+            Beberapa project yang saya kembangkan sebagai implementasi kemampuan UI/UX Design, System Analysis, dan Software Development selama perkuliahan.
+          </p>
+        </motion.div>
 
-        return (
-          <motion.div
-            key={project.title}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.08 }}
-            className={`flex flex-col md:flex-row gap-10 items-center ${
-              isReversed ? "md:flex-row-reverse" : ""
-            }`}
-          >
-            {/* IMAGE */}
-            <div className="w-full md:w-1/2">
-              {project.image ? (
-                <div className="group relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition" />
+        {/* PROJECT LIST */}
+        <div className="mt-28 space-y-32">
+          {PROJECTS.map((project, index) => {
+            const isReversed = index % 2 !== 0;
 
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={900}
-                    height={600}
-                    className="w-full h-auto object-cover group-hover:scale-105 transition duration-500"
-                  />
+            return (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                className={`flex flex-col md:flex-row gap-12 items-center ${
+                  isReversed ? "md:flex-row-reverse" : ""
+                }`}
+              >
+                {/* IMAGE CONTAINER */}
+                <div className="w-full md:w-1/2">
+                  {project.image ? (
+                    <div className="group relative rounded-3xl overflow-hidden border border-slate-800 bg-[#121722]/50 backdrop-blur-xl transition duration-300 hover:border-[#CCFF00]/30">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-[#CCFF00]/5 to-[#FF8B72]/5 opacity-0 group-hover:opacity-100 transition duration-500" />
+
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={900}
+                        height={600}
+                        className="w-full h-auto object-cover group-hover:scale-[1.03] transition duration-500"
+                      />
+                    </div>
+                  ) : (
+                    <div className="h-[280px] rounded-3xl border border-slate-800 bg-[#121722]/50 flex items-center justify-center text-slate-500 text-sm font-mono backdrop-blur-xl">
+                      No Preview Available
+                    </div>
+                  )}
                 </div>
-              ) : (
-                <div className="h-[260px] rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 text-sm backdrop-blur-xl">
-                  No Preview Available
+
+                {/* CONTENT CONTAINER */}
+                <div className="w-full md:w-1/2">
+                  <p className="text-[#FF8B72] text-xs font-bold tracking-[0.25em] uppercase font-mono">
+                    {project.subtitle}
+                  </p>
+
+                  <h3 className="mt-3 text-3xl font-extrabold text-white tracking-tight">
+                    {project.title}
+                  </h3>
+
+                  <p className="mt-4 text-slate-400 leading-7 text-base font-normal">
+                    {project.description}
+                  </p>
+
+                  {/* ROLE STACKS (Gaya Minimalis Tanpa Bubble) */}
+                  <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-mono">
+                    <span className="text-slate-500 font-bold uppercase tracking-wider">Roles:</span>
+                    {project.role.map((r, i) => (
+                      <span key={r} className="text-[#FF8B72] font-semibold">
+                        {r}
+                        {i < project.role.length - 1 && <span className="text-slate-800 ml-3">|</span>}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* TECH STACKS (Gaya Minimalis Tanpa Bubble) */}
+                  <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-mono">
+                    <span className="text-slate-500 font-bold uppercase tracking-wider">Tech:</span>
+                    {project.tech.map((t, i) => (
+                      <span key={t} className="text-[#CCFF00] font-semibold">
+                        {t}
+                        {i < project.tech.length - 1 && <span className="text-slate-800 ml-3">|</span>}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* ACTION BUTTONS (Murni Teks Dop Tanpa Ikon) */}
+                  <div className="mt-8 flex flex-wrap gap-4">
+                    {project.prototype && (
+                      <a
+                        href={project.prototype}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center rounded-xl bg-slate-800 px-6 py-3.5 text-xs font-bold tracking-wider text-[#E3D5CA] transition-all duration-200 hover:bg-[#E3D5CA] hover:text-[#0B0F17] hover:-translate-y-0.5 active:translate-y-0 shadow-md border border-slate-700"
+                      >
+                        View Prototype
+                      </a>
+                    )}
+
+                    {project.report && (
+                      <a
+                        href={project.report}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center rounded-xl bg-slate-800 px-6 py-3.5 text-xs font-bold tracking-wider text-[#FF8B72] transition-all duration-200 hover:bg-[#FF8B72] hover:text-[#0B0F17] hover:-translate-y-0.5 active:translate-y-0 shadow-md border border-slate-700"
+                      >
+                        View Report
+                      </a>
+                    )}
+
+                    {project.dashboard && (
+                      <a
+                        href={project.dashboard}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center rounded-xl bg-slate-800 px-6 py-3.5 text-xs font-bold tracking-wider text-[#CCFF00] transition-all duration-200 hover:bg-[#CCFF00] hover:text-[#0B0F17] hover:-translate-y-0.5 active:translate-y-0 shadow-md border border-slate-700"
+                      >
+                        View KPI Dashboard
+                      </a>
+                    )}
+                  </div>
+
                 </div>
-              )}
-            </div>
+              </motion.div>
+            );
+          })}
+        </div>
 
-            {/* CONTENT */}
-            <div className="w-full md:w-1/2">
-              <p className="text-cyan-400 text-xs tracking-[0.35em] uppercase font-mono">
-                {project.subtitle}
-              </p>
+        {/* FOOTER FOOTPRINT CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="mt-36"
+        >
+          <div className="rounded-3xl border border-slate-800/80 bg-[#121722]/40 backdrop-blur-xl p-10 text-center relative overflow-hidden">
+            <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-[#CCFF00]/5 blur-2xl rounded-full" />
+            <h3 className="text-2xl font-bold text-white tracking-tight">
+              Always Building &amp; Improving
+            </h3>
+            <p className="mt-3 max-w-xl mx-auto text-slate-400 leading-7 text-sm">
+              Saya terus mengembangkan proyek baru untuk mengasah ketajaman analisis proses bisnis serta merancang pengalaman produk digital yang solutif.
+            </p>
+          </div>
+        </motion.div>
 
-              <h3 className="mt-3 text-3xl font-bold text-white">
-                {project.title}
-              </h3>
-
-              <p className="mt-5 text-slate-400 leading-8">
-                {project.description}
-              </p>
-
-              {/* ROLE */}
-              <div className="mt-6 flex flex-wrap gap-2">
-                {project.role.map((r) => (
-                  <span
-                    key={r}
-                    className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300"
-                  >
-                    {r}
-                  </span>
-                ))}
-              </div>
-
-              {/* TECH */}
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-            {/* ACTION BUTTONS */}
-<div className="mt-6 flex flex-wrap gap-3">
-
-  {project.prototype && (
-    <a
-      href={project.prototype}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-full bg-purple-600 border border-purple-500 px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-purple-500 hover:scale-105"
-    >
-      View Prototype
-    </a>
-  )}
-
-  {project.report && (
-    <a
-      href={project.report}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-full bg-amber-600 border border-amber-500 px-5 py-2 text-sm font-medium text-slate-950 transition-all duration-300 hover:bg-amber-500 hover:scale-105"
-    >
-      View Report
-    </a>
-  )}
-
-  {project.dashboard && (
-    <a
-      href={project.dashboard}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-full bg-cyan-600 border border-cyan-500 px-5 py-2 text-sm font-medium text-slate-950 transition-all duration-300 hover:bg-cyan-500 hover:scale-105"
-    >
-      View KPI Dashboard
-    </a>
-  )}
-
-</div>
-
-            </div>
-          </motion.div>
-        );
-      })}
-    </div>
-
-    {/* CTA */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7 }}
-      viewport={{ once: true }}
-      className="mt-28"
-    >
-      <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-10 text-center">
-        <h3 className="text-3xl font-bold text-white">
-          Always Building & Improving
-        </h3>
-
-        <p className="mt-4 max-w-2xl mx-auto text-slate-400 leading-8">
-          Saya terus mengembangkan project untuk meningkatkan skill di bidang
-          UI/UX, System Analysis, dan Software Engineering.
-        </p>
       </div>
-    </motion.div>
-
-  </div>
-</section>
-);
+    </section>
+  );
 }
